@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>KnowYourBuild</title>
+    <meta name="author" Diego />
+    <meta name="keywords" PC,Building,Parts,Knowyourbuild,Webpage,Project />
+    <meta name="description" Know your PC parts. />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Stylesheet" href="Style.css" />
+    <style>
+
+        figure.snip1139 {
+            font-family: 'Raleway', Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+            min-width: 220px;
+            max-width: 310px;
+            width: 100%;
+            color: #333;
+            text-align: left;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+        }
+
+            figure.snip1139 * {
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                -webkit-transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+                transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+            }
+
+            figure.snip1139 img {
+                max-width: 100%;
+                vertical-align: middle;
+            }
+
+            figure.snip1139 blockquote {
+                position: relative;
+                background-color: #ffffff;
+                padding: 25px 50px 25px 50px;
+                font-size: 0.8em;
+                font-weight: 500;
+                text-align: left;
+                margin: 0;
+                line-height: 1.6em;
+                font-style: italic;
+            }
+
+                figure.snip1139 blockquote:before,
+                figure.snip1139 blockquote:after {
+                    font-family: 'FontAwesome';
+                    content: "\201C";
+                    position: absolute;
+                    font-size: 50px;
+                    opacity: 0.3;
+                    font-style: normal;
+                }
+
+                figure.snip1139 blockquote:before {
+                    top: 25px;
+                    left: 20px;
+                }
+
+                figure.snip1139 blockquote:after {
+                    content: "\201D";
+                    right: 20px;
+                    bottom: 0;
+                }
+
+            figure.snip1139 .arrow {
+                top: 100%;
+                width: 0;
+                height: 0;
+                border-left: 0 solid transparent;
+                border-right: 25px solid transparent;
+                border-top: 25px solid #ffffff;
+                margin: 0;
+                position: absolute;
+            }
+
+            figure.snip1139 .author {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                padding: 5px 25px;
+                color: #000000;
+                background-color: #ffffff;
+                margin: 0;
+                text-transform: uppercase;
+            }
+
+                figure.snip1139 .author h5 {
+                    opacity: 0.8;
+                    margin: 0;
+                    font-weight: 800;
+                }
+
+                    figure.snip1139 .author h5 span {
+                        font-weight: 400;
+                        text-transform: none;
+                        padding-left: 5px;
+                    }
+    </style>
+</head>
+<body>
+
+    <!--HEADER-->
+    <header>
+        <h1>
+            <img src="Designer.png"
+                 width="100" height="100"
+                 alt="Knowyourbuild logo."
+                 class="logo" />
+            Know Your Build
+        </h1>
+        <nav role="navigation" aria-label="Navegación principal">
+
+            <a href="index.html" aria-current="page">Start</a>
+
+            <a href="Cause.html">Introducction</a>
+
+            <a href="Resources.html">Information</a>
+
+            <a href="HowtoHelp.html">More and Feedback</a>
+        </nav>
+    </header>
+
+    <!--MAIN CONTENT-->
+    <main role="main" id="inicio">
+        <h2>More Information</h2>
+     
+            
+        <p>Here are more places to find information:</p>
+
+            <a href="https://pcpartpicker.com/" target="_blank">Pc Part Picker</a>
+            <br />
+            <a href="https://pc-builds.com/" target="_blank">Pc-Builds</a>
+            <br />
+            <a href="https://averagefinder.com/" target="_blank">Average finder</a>
+
+            <!-- === INTERACTIVE FORM === -->
+
+            <form id="interfazForm" aria-label="Formulario de registro de ejemplo" novalidate>
+
+                <h3>Feedback</h3>
+
+               
+
+                <!--COMPLETE NAME-->
+
+                <label for="nombre">
+
+                    Name: <span style="color: var(--color-error);">*</span>
+
+                </label>
+
+                <input type="text"
+                       id="nombre"
+                       name="nombre"
+                       placeholder="Enter your name or Username"
+                       required
+                       aria-required="true"
+                       aria-describedby="nombre-error">
+
+                <div id="nombre-error" class="error-message" role="alert"></div>
+
+
+
+
+
+                <!--TEXT AREA-->
+
+                <label for="comentarios">Comments:</label>
+
+                <textarea id="comentarios"
+                          name="comentarios"
+                          rows="4"
+                          placeholder="Write a Comment..."
+                          maxlength="500"></textarea>
+
+                <small style="color: var(--color-text-light); display: block; margin-top: 5px;">
+
+                    Max 500 caracters
+
+                </small>
+
+
+
+
+
+
+                <!--BUTTONS-->
+
+                <div class="button-group">
+
+                    <button type="submit" id="submitBtn">
+
+                        Send Form
+
+                    </button>
+
+                    <button type="button" class="btn-secondary" onclick="resetearFormulario()">
+
+                        Clean Form
+
+                    </button>
+
+                </div>
+
+            </form>
+
+
+
+            <hr>
+
+
+
+            <!--RESULTS-->
+
+            <div id="resultado" class="success" aria-live="polite" aria-atomic="true"></div>
+
+
+
+            <hr>
+
+
+
+
+</main>
+
+    <!--FOOTER-->
+    <footer role="contentinfo">
+        <p>
+            Me puede contactar via:
+            <br>
+            <a href="mailto:driv7943@interponce.edu">driv7943@interponce.edu</a>
+        </p>
+    </footer>
+    <!--JAVASCRIPT-->
+
+    <script>
+
+        //UTILIDADES 
+
+
+
+        // Función para escapar HTML y prevenir XSS
+
+        function escapeHtml(text) {
+
+            const div = document.createElement('div');
+
+            div.textContent = text;
+
+            return div.innerHTML;
+
+        }
+
+
+
+        // Validar email
+
+        function validarEmail(email) {
+
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            return regex.test(email);
+
+        }
+
+
+
+        // Mostrar error en campo
+
+        function mostrarError(fieldId, mensaje) {
+
+            const field = document.getElementById(fieldId);
+
+            const errorDiv = document.getElementById(`${fieldId}-error`);
+
+
+
+            if (field) {
+
+                field.classList.add('field-error');
+
+                field.classList.remove('field-success');
+
+            }
+
+
+
+            if (errorDiv) {
+
+                errorDiv.textContent = mensaje;
+
+                errorDiv.classList.add('show');
+
+            }
+
+        }
+
+
+
+        // Limpiar error en campo
+
+        function limpiarError(fieldId) {
+
+            const field = document.getElementById(fieldId);
+
+            const errorDiv = document.getElementById(`${fieldId}-error`);
+
+
+
+            if (field) {
+
+                field.classList.remove('field-error');
+
+                field.classList.add('field-success');
+
+            }
+
+
+
+            if (errorDiv) {
+
+                errorDiv.textContent = '';
+
+                errorDiv.classList.remove('show');
+
+            }
+
+        }
+
+
+
+        // ===== VALIDACIÓN DEL FORMULARIO =====
+
+
+
+        function validarFormulario() {
+
+            let esValido = true;
+
+
+
+            // Validar nombre
+
+            const nombreField = document.getElementById('nombre');
+
+            const nombre = nombreField.value.trim();
+
+            if (!nombre) {
+
+                mostrarError('nombre', 'Please Input your Name.');
+
+                esValido = false;
+
+            } else if (nombre.length < 3) {
+
+                mostrarError('nombre', 'El nombre debe tener al menos 3 caracteres.');
+
+                esValido = false;
+
+            } else {
+
+                limpiarError('nombre');
+
+            }
+
+
+
+
+            return esValido;
+
+        }
+
+
+
+        // ===== MANEJO DEL FORMULARIO =====
+
+
+
+        document.getElementById('interfazForm').addEventListener('submit', function (e) {
+
+            e.preventDefault();
+
+
+
+            if (!validarFormulario()) {
+
+                // Hacer scroll al primer campo con error
+
+                const primerError = document.querySelector('.field-error');
+
+                if (primerError && typeof primerError.scrollIntoView === 'function') {
+
+                    primerError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    primerError.focus();
+
+                }
+
+                return;
+
+            }
+
+
+
+            mostrarDatos();
+
+        });
+
+
+
+        // ===== MOSTRAR DATOS =====
+
+
+
+        function mostrarDatos() {
+
+            // Deshabilitar botón mientras procesa
+
+            const submitBtn = document.getElementById('submitBtn');
+
+            submitBtn.disabled = true;
+
+            submitBtn.textContent = 'Procesando...';
+
+
+
+            // Capturar todos los datos del formulario
+
+            const nombre = escapeHtml(document.getElementById('nombre').value.trim());
+
+            const correo = escapeHtml(document.getElementById('correo').value.trim());
+
+            const programa = escapeHtml(document.getElementById('programa').value);
+
+            const comentarios = escapeHtml(document.getElementById('comentarios').value.trim());
+
+            const boletin = document.getElementById('boletin').checked ? "Sí" : "No";
+
+
+
+            // Capturar modalidad
+
+            const modalidadSeleccionada = document.querySelector('input[name="modalidad"]:checked');
+
+            const modalidad = modalidadSeleccionada ? escapeHtml(modalidadSeleccionada.value) : "No especificada";
+
+
+
+            // Capturar intereses (select múltiple)
+
+            const interesesSelect = document.getElementById('intereses');
+
+            const interesesSeleccionados = Array.from(interesesSelect.selectedOptions)
+
+                .map(option => escapeHtml(option.value));
+
+            const intereses = interesesSeleccionados.length > 0
+
+                ? interesesSeleccionados.join(', ')
+
+                : 'Ninguno seleccionado';
+
+
+
+            // Simular procesamiento (setTimeout para efecto de carga)
+
+            setTimeout(() => {
+
+                const resultado = document.getElementById('resultado');
+
+                resultado.style.display = 'block';
+
+                resultado.innerHTML = `
+
+                              <h4>✓ Registro completado exitosamente</h4>
+
+                              <p><strong>Nombre:</strong> ${nombre}</p>
+
+                              <p><strong>Correo:</strong> ${correo}</p>
+
+                              <p><strong>Programa:</strong> ${programa}</p>
+
+                              <p><strong>Áreas de interés:</strong> ${intereses}</p>
+
+                              <p><strong>Comentarios:</strong> ${comentarios || "(sin comentarios)"}</p>
+
+                              <p><strong>Suscripción a boletín:</strong> ${boletin}</p>
+
+                              <p><strong>Modalidad preferida:</strong> ${modalidad}</p>
+
+                              <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+
+                                <em>Nota: Esta es una demostración. Los datos no se almacenan.</em>
+
+                              </p>
+
+                            `;
+
+
+
+                // Scroll suave al resultado
+
+                if (typeof resultado.scrollIntoView === 'function') {
+
+                    resultado.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+                }
+
+
+
+                // Rehabilitar botón
+
+                submitBtn.disabled = false;
+
+                submitBtn.textContent = 'Enviar Registro';
+
+            }, 800);
+
+        }
+
+
+
+        // ===== RESETEAR FORMULARIO =====
+
+
+
+        function resetearFormulario() {
+
+            if (confirm('¿Está seguro de que desea limpiar todos los campos del formulario?')) {
+
+                document.getElementById('interfazForm').reset();
+
+
+
+                // Limpiar errores visuales
+
+                document.querySelectorAll('.field-error, .field-success').forEach(field => {
+
+                    field.classList.remove('field-error', 'field-success');
+
+                });
+
+
+
+                document.querySelectorAll('.error-message').forEach(error => {
+
+                    error.classList.remove('show');
+
+                    error.textContent = '';
+
+                });
+
+
+
+                // Ocultar resultado
+
+                document.getElementById('resultado').style.display = 'none';
+
+
+
+                // Focus en primer campo
+
+                document.getElementById('nombre').focus();
+
+            }
+
+        }
+
+
+
+        // ===== VALIDACIÓN EN TIEMPO REAL =====
+
+
+
+        // Validar mientras se escribe
+
+        document.getElementById('nombre').addEventListener('blur', function () {
+
+            if (this.value.trim()) {
+
+                if (this.value.trim().length < 3) {
+
+                    mostrarError('nombre', 'Name has less than 3 caracters.');
+
+                } else {
+
+                    limpiarError('nombre');
+
+                }
+
+            }
+
+        });
+
+
+
+        document.getElementById('correo').addEventListener('blur', function () {
+
+            if (this.value.trim()) {
+
+                if (!validarEmail(this.value.trim())) {
+
+                    mostrarError('correo', 'Por favor, ingrese un correo electrónico válido.');
+
+                } else {
+
+                    limpiarError('correo');
+
+                }
+
+            }
+
+        });
+
+
+
+        document.getElementById('programa').addEventListener('change', function () {
+
+            if (this.value) {
+
+                limpiarError('programa');
+
+            }
+
+        });
+
+
+
+
+
+        // ===== CONTADOR DE CARACTERES PARA TEXTAREA =====
+
+
+
+        const comentariosTextarea = document.getElementById('comentarios');
+
+        const maxLength = comentariosTextarea.getAttribute('maxlength');
+
+
+
+        // Crear contador
+
+        const counterDiv = document.createElement('small');
+
+        counterDiv.style.color = 'var(--color-text-light)';
+
+        counterDiv.style.display = 'block';
+
+        counterDiv.style.marginTop = '5px';
+
+        counterDiv.style.textAlign = 'right';
+
+
+
+        // Insertar el contador justo después del small "Máximo 500 caracteres"
+
+        const referencia = comentariosTextarea.nextElementSibling; // el small existente
+
+        if (referencia) {
+
+            referencia.insertAdjacentElement('afterend', counterDiv);
+
+        } else {
+
+            comentariosTextarea.parentNode.appendChild(counterDiv);
+
+        }
+
+
+
+        function actualizarContador() {
+
+            const length = comentariosTextarea.value.length;
+
+            counterDiv.textContent = `${length} / ${maxLength} caracteres`;
+
+
+
+            if (length > maxLength * 0.9) {
+
+                counterDiv.style.color = 'var(--color-warning)';
+
+            } else {
+
+                counterDiv.style.color = 'var(--color-text-light)';
+
+            }
+
+        }
+
+
+
+        comentariosTextarea.addEventListener('input', actualizarContador);
+
+        actualizarContador(); // Inicializar contador
+
+    </script>
+</body>
+</html>
